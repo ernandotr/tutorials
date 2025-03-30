@@ -1,6 +1,5 @@
 package br.com.devcompleto;
 
-import java.io.Console;
 import java.util.Scanner;
 
 public class ClearScreenExample {
