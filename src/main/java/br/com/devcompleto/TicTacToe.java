@@ -12,6 +12,7 @@ public class TicTacToe {
     }
 
     private static  void drawBoard() {
+        System.out.print("\033[H\033[2J");
         System.out.println("\n\tTIC TAC TOE GAME");
         System.out.println("========================");
         System.out.print("\t     |     |\n");
