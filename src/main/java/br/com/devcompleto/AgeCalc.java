@@ -14,9 +14,8 @@ public class AgeCalc {
         String birthDate =  sc.nextLine();
         LocalDate birth =  LocalDate.parse(birthDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-//        LocalDate birth = LocalDate.of(1979, 6, 29);
         LocalDate today = LocalDate.now();
         Period period = Period.between(birth, today);
-        System.out.println(period.getYears());
+        System.out.printf("The calculated age is: %d", period.getYears());
     }
 }
