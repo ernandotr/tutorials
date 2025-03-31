@@ -10,18 +10,33 @@ public class TicTacToe {
         drawBoard();
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Payer 1, enter your chosen: ");
-        int chosen = scanner.nextInt();
-        board[chosen] = "X";
 
-        drawBoard();
+        while(true) {
+            System.out.print("Payer 1, enter your chosen: ");
+            int chosen = scanner.nextInt();
+            board[chosen] = "X";
+            drawBoard();
+            if(hasWinner()){
+                System.out.println(" => Pay 1 won !!!.");
+                System.out.println(" ==== END GAME ====");
+                break;
+            }
 
-        System.out.println("Player 2, enter your chosen: ");
-        chosen = scanner.nextInt();
-        board[chosen] = "O";
-        drawBoard();
+            System.out.println("Player 2, enter your chosen: ");
+            chosen = scanner.nextInt();
+            board[chosen] = "O";
+            drawBoard();
+            if(hasWinner()){
+                System.out.println(" => Pay 2 won !!!.");
+                System.out.println(" ==== END GAME ====");
+                break;
+            }
+        }
+    }
 
+    private static boolean hasWinner() {
 
+        return true;
     }
 
     private static  void drawBoard() {
