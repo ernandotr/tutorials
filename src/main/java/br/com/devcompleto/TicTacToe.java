@@ -1,5 +1,7 @@
 package br.com.devcompleto;
 
+import java.util.Scanner;
+
 public class TicTacToe {
     static String [] board = {"", "1", "2" ,"3", "4", "5", "6", "7", "8", "9" };
 
@@ -7,13 +9,24 @@ public class TicTacToe {
         clearScreen();
         drawBoard();
 
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Payer 1, enter your chosen: ");
+        int chosen = scanner.nextInt();
+        board[chosen] = "X";
+
+        drawBoard();
+
+        System.out.println("Player 2, enter your chosen: ");
+        chosen = scanner.nextInt();
+        board[chosen] = "O";
+        drawBoard();
 
 
     }
 
     private static  void drawBoard() {
 
-        System.out.println("\n\tTIC TAC TOE GAME");
+        System.out.println("      TIC TAC TOE GAME");
         System.out.println("  ========================");
         System.out.print("         |     |\n\r");
         System.out.printf("      %s  |  %s  |  %s  \n\r", board[1], board[2], board[3]);
