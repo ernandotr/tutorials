@@ -36,7 +36,14 @@ public class TicTacToe {
 
     private static boolean hasWinner() {
 
-        return true;
+        return (board[1].equals(board[2]) && board[2].equals(board[3]))
+                || (board[1].equals(board[4]) && board[4].equals(board[7]))
+                || (board[4].equals(board[5]) && board[5].equals(board[6]))
+                || (board[7].equals(board[8]) && board[8].equals(board[9]))
+                || (board[2].equals(board[5]) && board[5].equals(board[8]))
+                || (board[3].equals(board[6]) && board[6].equals(board[9]))
+                || (board[1].equals(board[5]) && board[5].equals(board[9]))
+                || (board[7].equals(board[5]) && board[5].equals(board[3]));
     }
 
     private static  void drawBoard() {
