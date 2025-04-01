@@ -12,9 +12,9 @@ public class TicTacToe {
         Scanner scanner = new Scanner(System.in);
 
         while(true) {
-            System.out.print("Payer 1, enter your chosen: ");
-            int chosen = scanner.nextInt();
-            board[chosen] = "X";
+            System.out.print("Payer 1, enter your choice: ");
+            int choice = scanner.nextInt();
+            board[choice] = "X";
             drawBoard();
             if(hasWinner()){
                 System.out.println(" => Pay 1, you won !!!.");
@@ -24,9 +24,9 @@ public class TicTacToe {
 
             if (checkIfThereIsTie()) break;
 
-            System.out.println("Player 2, enter your chosen: ");
-            chosen = scanner.nextInt();
-            board[chosen] = "O";
+            System.out.println("Player 2, enter your choice: ");
+            choice = scanner.nextInt();
+            board[choice] = "O";
             drawBoard();
             if(hasWinner()){
                 System.out.println(" => Pay 2 you won !!!.");
