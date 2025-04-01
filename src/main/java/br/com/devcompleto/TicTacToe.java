@@ -22,6 +22,8 @@ public class TicTacToe {
                 break;
             }
 
+            if (checkIfThereIsTie()) break;
+
             System.out.println("Player 2, enter your chosen: ");
             chosen = scanner.nextInt();
             board[chosen] = "O";
@@ -31,7 +33,17 @@ public class TicTacToe {
                 System.out.println(" ==== END GAME ====");
                 break;
             }
+            if (checkIfThereIsTie()) break;
         }
+    }
+
+    private static boolean checkIfThereIsTie() {
+        if(isTie()) {
+            System.out.println(" => There is tie.");
+            System.out.println(" ==== END GAME ====");
+            return true;
+        }
+        return false;
     }
 
     private static boolean hasWinner() {
@@ -60,6 +72,21 @@ public class TicTacToe {
         System.out.printf("      %s  |  %s  |  %s  \n", board[7], board[8], board[9]);
         System.out.print("         |     |\n\r");
         System.out.println("  ========================");
+    }
+
+    private static boolean isTie() {
+        boolean tie = true;
+        for(String s : board){
+            if(isNumeric(s)) {
+                tie = false;
+                break;
+            }
+        }
+        return tie;
+    }
+
+    public static boolean isNumeric(String str) {
+        return str.matches("-?\\d+(\\.\\d+)?");
     }
 
     private static void clearScreen() {
