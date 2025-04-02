@@ -3,6 +3,11 @@ package br.com.devcompleto;
 import java.util.Scanner;
 
 public class TicTacToe {
+    public static final String END_GAME = " ==== END GAME ====";
+    public static final String PLAYER_ONE_NAME = "Player 1";
+    public static final String PLAYER_TWO_NAME = "Player 2";
+    public static final String PLAYER_ONE_MARK = "X";
+    public static final String PLAYER_TWO_MARK = "O";
     static String [] board = {"", "1", "2" ,"3", "4", "5", "6", "7", "8", "9" };
 
     public static void main(String[] args) {
@@ -12,17 +17,17 @@ public class TicTacToe {
         Scanner scanner = new Scanner(System.in);
 
         while(true) {
-            int choice = readChoice(scanner, "Player 1");
-            board[choice] = "X";
+            int choice = readChoice(scanner, PLAYER_ONE_NAME);
+            board[choice] = PLAYER_ONE_MARK;
             drawBoard();
-            checkWinner("Player 1");
+            checkWinner(PLAYER_ONE_NAME);
 
             if (checkIfThereIsTie()) break;
 
-            choice = readChoice(scanner, "Player 2");
-            board[choice] = "O";
+            choice = readChoice(scanner, PLAYER_TWO_NAME);
+            board[choice] = PLAYER_TWO_MARK;
             drawBoard();
-            checkWinner("Player 2");
+            checkWinner(PLAYER_TWO_NAME);
             if (checkIfThereIsTie()) break;
         }
     }
@@ -35,7 +40,7 @@ public class TicTacToe {
     private static void checkWinner(String player) {
         if(hasWinner()){
             System.out.printf(" => %s, you won !!!.%n", player);
-            System.out.println(" ==== END GAME ====");
+            System.out.println(END_GAME);
             System.exit(0);
         }
     }
@@ -43,7 +48,7 @@ public class TicTacToe {
     private static boolean checkIfThereIsTie() {
         if(isTie()) {
             System.out.println(" => There is tie.");
-            System.out.println(" ==== END GAME ====");
+            System.out.println(END_GAME);
             return true;
         }
         return false;
