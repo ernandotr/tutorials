@@ -12,16 +12,14 @@ public class TicTacToe {
         Scanner scanner = new Scanner(System.in);
 
         while(true) {
-            System.out.print("Player 1, enter your choice: ");
-            int choice = scanner.nextInt();
+            int choice = readChoice(scanner, "Player 1");
             board[choice] = "X";
             drawBoard();
-            if (checkWinner("Player 1")) break;
+            checkWinner("Player 1");
 
             if (checkIfThereIsTie()) break;
 
-            System.out.println("Player 2, enter your choice: ");
-            choice = scanner.nextInt();
+            choice = readChoice(scanner, "Player 2");
             board[choice] = "O";
             drawBoard();
             checkWinner("Player 2");
@@ -29,13 +27,17 @@ public class TicTacToe {
         }
     }
 
-    private static boolean checkWinner(String player) {
+    private static int readChoice(Scanner scanner, String player) {
+        System.out.printf("%s, enter your choice: ", player);
+        return scanner.nextInt();
+    }
+
+    private static void checkWinner(String player) {
         if(hasWinner()){
             System.out.printf(" => %s, you won !!!.%n", player);
             System.out.println(" ==== END GAME ====");
-            return true;
+            System.exit(0);
         }
-        return false;
     }
 
     private static boolean checkIfThereIsTie() {
