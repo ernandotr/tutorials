@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class TicTacToe {
     public static final String END_GAME = " ==== END GAME ====";
     public static final String PLAYER_ONE_NAME = "Player 1";
-    public static final String PLAYER_TWO_NAME = "Player 2";
+    public static final String PLAYER_2_NAME = "Player 2";
     public static final String PLAYER_ONE_MARK = "X";
     public static final String PLAYER_TWO_MARK = "O";
     static String [] board = {"", "1", "2" ,"3", "4", "5", "6", "7", "8", "9" };
@@ -24,10 +24,10 @@ public class TicTacToe {
 
             if (checkIfThereIsTie()) break;
 
-            choice = readChoice(scanner, PLAYER_TWO_NAME);
+            choice = readChoice(scanner, PLAYER_2_NAME);
             board[choice] = PLAYER_TWO_MARK;
             drawBoard();
-            checkWinner(PLAYER_TWO_NAME);
+            checkWinner(PLAYER_2_NAME);
             if (checkIfThereIsTie()) break;
         }
     }
@@ -70,16 +70,19 @@ public class TicTacToe {
         clearScreen();
         System.out.println();
         System.out.println("  ========================");
-        System.out.println("      TIC TAC TOE GAME");
+        System.out.println("  |   TIC TAC TOE GAME   |");
         System.out.println("  ========================");
+        System.out.println();
         System.out.print("         |     |\n\r");
         System.out.printf("      %s  |  %s  |  %s  \n\r", board[1], board[2], board[3]);
-        System.out.print("    --------------------\n");
+        System.out.print("    -----------------\n");
         System.out.printf("      %s  |  %s  |  %s  \n", board[4], board[5], board[6]);
-        System.out.print("    --------------------\n");
+        System.out.print("    -----------------\n");
         System.out.printf("      %s  |  %s  |  %s  \n", board[7], board[8], board[9]);
         System.out.print("         |     |\n\r");
+        System.out.println();
         System.out.println("  ========================");
+        System.out.println();
     }
 
     private static boolean isTie() {
