@@ -10,7 +10,7 @@ public class TicTacToe {
     public static final String PLAYER_TWO_MARK = "O";
     private static final String RED_BOLD = " \u001b[31;1m";
     static String BLUE = "\u001b[34m";
-    private static final String RESET = " \u001b[0m";
+    private static final String RESET = "\u001b[0m";
     static String [] board = {"", "1", "2" ,"3", "4", "5", "6", "7", "8", "9" };
 
     public static void main(String[] args) {
@@ -42,7 +42,7 @@ public class TicTacToe {
 
     private static void checkWinner(String player) {
         if(hasWinner()){
-            System.out.printf(" => %s, you won !!!.%n", player);
+            System.out.printf("\u001b[32;1m => %s, you won !!!. \u001b[0m %n", player);
             System.out.println(END_GAME);
             System.exit(0);
         }
