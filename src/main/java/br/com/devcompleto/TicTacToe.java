@@ -91,15 +91,19 @@ public class TicTacToe {
 
     private static void drawBoardFooter() {
         System.out.println(BLUE);
-        System.out.println("  ========================");
+        drawHorizontalBord();
         System.out.println(RESET);
+    }
+
+    private static void drawHorizontalBord() {
+        System.out.println("  ========================");
     }
 
     private static void drawBoardHeader() {
         System.out.println(BLUE);
-        System.out.println("  ========================");
+        drawHorizontalBord();
         System.out.println("  |   TIC TAC TOE GAME   |");
-        System.out.println("  ========================");
+        drawHorizontalBord();
     }
 
     private static boolean isTie() {
