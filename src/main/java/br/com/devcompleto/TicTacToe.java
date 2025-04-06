@@ -3,7 +3,6 @@ package br.com.devcompleto;
 import java.util.Scanner;
 
 public class TicTacToe {
-    public static final String END_GAME = " ==== END GAME ====";
     public static final String PLAYER_ONE_NAME = "Player 1";
     public static final String PLAYER_2_NAME = "Player 2";
     public static final String PLAYER_ONE_MARK = "X";
@@ -11,6 +10,7 @@ public class TicTacToe {
     private static final String RED_BOLD = " \u001b[31;1m";
     static String BLUE = "\u001b[34m";
     private static final String RESET = "\u001b[0m";
+    public static final String END_GAME = BLUE+" ======== END GAME ======="+RESET;
     static String [] board = {"", "1", "2" ,"3", "4", "5", "6", "7", "8", "9" };
 
     public static void main(String[] args) {
@@ -24,14 +24,13 @@ public class TicTacToe {
             board[choice] = PLAYER_ONE_MARK;
             drawBoard();
             checkWinner(PLAYER_ONE_NAME);
-
-            if (checkIfThereIsTie()) break;
+            checkIfThereIsTie();
 
             choice = readChoice(scanner, PLAYER_2_NAME);
             board[choice] = PLAYER_TWO_MARK;
             drawBoard();
             checkWinner(PLAYER_2_NAME);
-            if (checkIfThereIsTie()) break;
+            checkIfThereIsTie();
         }
     }
 
@@ -43,18 +42,20 @@ public class TicTacToe {
     private static void checkWinner(String player) {
         if(hasWinner()){
             System.out.printf("\u001b[32;1m => %s, you won !!!. \u001b[0m %n", player);
-            System.out.println(END_GAME);
-            System.exit(0);
+            endGame();
         }
     }
 
-    private static boolean checkIfThereIsTie() {
+    private static void checkIfThereIsTie() {
         if(isTie()) {
             System.out.println(" => There is tie.");
-            System.out.println(END_GAME);
-            return true;
+            endGame();
         }
-        return false;
+    }
+
+    private static void endGame() {
+        System.out.println(END_GAME);
+        System.exit(0);
     }
 
     private static boolean hasWinner() {
