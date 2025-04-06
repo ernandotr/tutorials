@@ -2,6 +2,8 @@ package br.com.devcompleto.utils;
 
 public class Color {
 
+    private static final String Reset = "\u001b[0m";
+
     public static final String Black = "\u001b[30m";
     public static final String Red = "\u001b[31m";
     public static final String Green = "\u001b[32m";
