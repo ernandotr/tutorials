@@ -1,6 +1,11 @@
 package br.com.devcompleto;
 
+import br.com.devcompleto.utils.Color;
+
 public class Ticker {
+
+    public static final String CLEAR_SCREEN = "\033[H\033[2J";
+
     public static void main(String... args) throws InterruptedException {
         String str = "\uD83D\uDEB5\uD83C\uDFFB\u200D♀️Welcome to \uD83D\uDC7D java text mode animation!\uD83D\uDEA3\uD83C\uDFFB\u200D♂️";
         int width = 60;
@@ -21,10 +26,10 @@ public class Ticker {
     }
 
     private static void changeTextColor() {
-        System.out.println("\u001b[35;1m");
+        System.out.println(Color.CYAN);
     }
 
     private static void clearScreen() {
-        System.out.print("\033[H\033[2J");
+        System.out.print(CLEAR_SCREEN);
     }
 }
