@@ -1,15 +1,19 @@
 package br.com.devcompleto;
 
+import br.com.devcompleto.utils.Color;
+
 import java.util.Scanner;
+import java.util.logging.Logger;
+
+import static br.com.devcompleto.utils.Color.BLUE;
+import static br.com.devcompleto.utils.Color.RESET;
 
 public class TicTacToe {
+    private static final Logger logger = Logger.getLogger(TicTacToe.class.getName());
     public static final String PLAYER_ONE_NAME = "Player 1";
     public static final String PLAYER_2_NAME = "Player 2";
     public static final String PLAYER_ONE_MARK = "X";
     public static final String PLAYER_TWO_MARK = "O";
-    private static final String RED_BOLD = " \u001b[31;1m";
-    static String BLUE = "\u001b[34m";
-    private static final String RESET = "\u001b[0m";
     public static final String END_GAME = BLUE+" ======== END GAME ======="+RESET;
     static String [] board = {"", "1", "2" ,"3", "4", "5", "6", "7", "8", "9" };
 
@@ -17,20 +21,22 @@ public class TicTacToe {
 
         drawBoard();
 
-        Scanner scanner = new Scanner(System.in);
+        try(Scanner scanner = new Scanner(System.in)) {
+            do {
+                int choice = readChoice(scanner, PLAYER_ONE_NAME);
+                board[choice] = PLAYER_ONE_MARK;
+                drawBoard();
+                checkWinner(PLAYER_ONE_NAME);
+                checkIfThereIsTie();
 
-        while(true) {
-            int choice = readChoice(scanner, PLAYER_ONE_NAME);
-            board[choice] = PLAYER_ONE_MARK;
-            drawBoard();
-            checkWinner(PLAYER_ONE_NAME);
-            checkIfThereIsTie();
-
-            choice = readChoice(scanner, PLAYER_2_NAME);
-            board[choice] = PLAYER_TWO_MARK;
-            drawBoard();
-            checkWinner(PLAYER_2_NAME);
-            checkIfThereIsTie();
+                choice = readChoice(scanner, PLAYER_2_NAME);
+                board[choice] = PLAYER_TWO_MARK;
+                drawBoard();
+                checkWinner(PLAYER_2_NAME);
+                checkIfThereIsTie();
+            } while (true);
+        } catch (Exception e){
+            logger.severe(e.getMessage());
         }
     }
 
@@ -41,7 +47,7 @@ public class TicTacToe {
 
     private static void checkWinner(String player) {
         if(hasWinner()){
-            System.out.printf("\u001b[32;1m => %s, you won !!!. \u001b[0m %n", player);
+            System.out.printf("%s => %s, you won !!!. %s", Color.GREEN, player, RESET);
             endGame();
         }
     }
