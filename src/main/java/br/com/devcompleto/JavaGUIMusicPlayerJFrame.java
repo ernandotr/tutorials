@@ -9,18 +9,17 @@ import javax.swing.filechooser.*;
 
 public class JavaGUIMusicPlayerJFrame extends JFrame implements ActionListener {
 
-    private JTextField filePathField;
-    private JButton playButton;
-    private JButton pauseButton;
-    private JButton chooseButton;
-    private JButton loopButton;
+    private final JTextField filePathField;
+    private final JButton playButton;
+    private final JButton pauseButton;
+    private final JButton chooseButton;
+    private final JButton loopButton;
     private boolean isPaused;
-    private boolean isLooping = false;
-    private JFileChooser fileChooser;
+    private boolean isLooping;
+    private final JFileChooser fileChooser;
     private Clip clip;
 
-    public JavaGUIMusicPlayerJFrame()
-    {
+    public JavaGUIMusicPlayerJFrame() {
         super("Music Player");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -55,68 +54,51 @@ public class JavaGUIMusicPlayerJFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent event) {
 
-        if (event.getSource() == playButton)
-        {
+        if (event.getSource() == playButton) {
             playMusic();
-        }
-        else if (event.getSource() == pauseButton)
-        {
+        } else if (event.getSource() == pauseButton) {
             pauseMusic();
-        }
-        else if (event.getSource() == chooseButton)
-        {
+        } else if (event.getSource() == chooseButton) {
             chooseFile();
-        }
-        else if (event.getSource() == loopButton)
-        {
+        } else if (event.getSource() == loopButton) {
             toggleLoop();
         }
     }
 
     private void playMusic() {
 
-        if (clip != null && clip.isRunning())
-        {
+        if (clip != null && clip.isRunning()) {
             clip.stop();
         }
 
-        try
-        {
+        try {
             File file = new File(filePathField.getText());
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(file);
 
             clip = AudioSystem.getClip();
             clip.open(audioIn);
 
-            if (isLooping)
-            {
+            if (isLooping) {
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
             }
 
             clip.start();
 
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
     }
 
-    private void pauseMusic()
-    {
-        if (clip != null && clip.isRunning())
-        {
+    private void pauseMusic() {
+        if (clip != null && clip.isRunning()) {
             clip.stop();
             isPaused = true;
             pauseButton.setText("Resume");
-        }
-        else if (clip != null && isPaused)
-        {
+        } else if (clip != null && isPaused) {
             clip.start();
 
-            if(isLooping)
-            {
+            if (isLooping) {
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
             }
 
@@ -125,35 +107,27 @@ public class JavaGUIMusicPlayerJFrame extends JFrame implements ActionListener {
         }
     }
 
-    private void chooseFile()
-    {
+    private void chooseFile() {
         fileChooser.setCurrentDirectory(new File("."));
         int result = fileChooser.showOpenDialog(this);
-        if (result == JFileChooser.APPROVE_OPTION)
-        {
+        if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
             filePathField.setText(selectedFile.getAbsolutePath());
         }
     }
 
-    private void toggleLoop()
-    {
+    private void toggleLoop() {
         isLooping = !isLooping;
-        if (isLooping)
-        {
+        if (isLooping) {
             loopButton.setText("Stop Loop");
 
-            if(clip.isRunning())
-            {
+            if (clip.isRunning()) {
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
             }
-        }
-        else
-        {
+        } else {
             loopButton.setText("Loop");
 
-            if(clip.isRunning())
-            {
+            if (clip.isRunning()) {
                 clip.loop(0);
             }
         }
