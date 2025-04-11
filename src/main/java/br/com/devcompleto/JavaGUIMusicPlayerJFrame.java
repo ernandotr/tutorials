@@ -46,7 +46,7 @@ public class JavaGUIMusicPlayerJFrame extends JFrame implements ActionListener {
         fileChooser = new JFileChooser(".");
         fileChooser.setFileFilter(new FileNameExtensionFilter("WAV Files", "wav"));
 
-        setSize(500, 100);
+        setSize(400, 200);
         setLocationRelativeTo(null);
         setVisible(true);
     }
