@@ -30,6 +30,14 @@ public class Color {
     public static String BACKGROUND_MAGENTA = "\u001b[45m";
     public static String BACKGROUND_CYAN = "\u001b[46m";
     public static String BACKGROUND_WHITE = "\u001b[47m";
+
+    public static String BACKGROUND_BRIGHT_BLACK = "\u001b[40;1m";
+    public static String BACKGROUND_BRIGHT_RED = "\u001b[41;1m";
+    public static String BACKGROUND_BRIGHT_GREEN = "\u001b[42;1m";
+    public static String BACKGROUND_BRIGHT_YELLOW = "\u001b[43;1m";
+    public static String BACKGROUND_BRIGHT_BLUE = "\u001b[44;1m";
+    public static String BACKGROUND_BRIGHT_MAGENTA = "\u001b[45;1m";
+    public static String BACKGROUND_BRIGHT_CYAN = "\u001b[46;1m";
     public static String BACKGROUND_BRIGHT_WHITE = "\u001b[47;1m";
 
 }
