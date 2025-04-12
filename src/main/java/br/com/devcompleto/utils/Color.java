@@ -22,14 +22,14 @@ public class Color {
     public static final String BRIGHT_CYAN = "\u001b[36;1m";
     public static final String BRIGHT_WHITE = "\u001b[37;1m";
 
-    static String BackgroundBlack = "\u001b[40m";
-    static String BackgroundRed = "\u001b[41m";
-    static String BackgroundGreen = "\u001b[42m";
-    static String BackgroundYellow = "\u001b[43m";
-    static String BackgroundBlue = "\u001b[44m";
-    static String BackgroundMagenta = "\u001b[45m";
-    static String BackgroundCyan = "\u001b[46m";
-    static String BackgroundWhite = "\u001b[47m";
-    static String BackgroundBrightWhite = "\u001b[47;1m";
+    public static String BACKGROUND_BLACK = "\u001b[40m";
+    public static String BACKGROUND_RED = "\u001b[41m";
+    public static String BACKGROUND_GREEN = "\u001b[42m";
+    public static String BACKGROUND_YELLOW = "\u001b[43m";
+    public static String BACKGROUND_BLUE = "\u001b[44m";
+    public static String BACKGROUND_MAGENTA = "\u001b[45m";
+    public static String BACKGROUND_CYAN = "\u001b[46m";
+    public static String BACKGROUND_WHITE = "\u001b[47m";
+    public static String BACKGROUND_BRIGHT_WHITE = "\u001b[47;1m";
 
 }
