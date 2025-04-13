@@ -47,14 +47,14 @@ public class TicTacToe {
 
     private static void checkWinner(String player) {
         if(hasWinner()){
-            System.out.printf("%s => %s, you won !!!. %s", Color.GREEN, player, RESET);
+            System.out.printf("%s => %s, you won !!!. %s%n", Color.GREEN, player, RESET);
             endGame();
         }
     }
 
     private static void checkIfThereIsTie() {
         if(isTie()) {
-            System.out.println(" => There is tie.");
+            System.out.println(" => There is tie.%n");
             endGame();
         }
     }
@@ -78,12 +78,14 @@ public class TicTacToe {
 
     private static  void drawBoard() {
         clearScreen();
+        System.out.println(Color.BACKGROUND_BLACK);
         drawBoardHeader();
         drawBoardBody();
         drawBoardFooter();
     }
 
     private static void drawBoardBody() {
+
         System.out.print("  |                      |\n");
         System.out.print("  |       |     |        |\n\r");
         System.out.printf("  |    %s  |  %s  |  %s     |\n\r", board[1], board[2], board[3]);
