@@ -117,6 +117,7 @@ public class TicTacToeSw {
                 setWinner(board[i][i]);
             }
             gameOver = true;
+            return;
         }
 
         if(!"".equals(board[0][2].getText())
@@ -126,6 +127,7 @@ public class TicTacToeSw {
             setWinner(board[1][1]);
             setWinner(board[2][0]);
             gameOver = true;
+            return;
         }
 
         if(turns == 9) {
