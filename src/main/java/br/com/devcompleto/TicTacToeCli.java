@@ -8,8 +8,8 @@ import java.util.logging.Logger;
 import static br.com.devcompleto.utils.Color.BLUE;
 import static br.com.devcompleto.utils.Color.RESET;
 
-public class TicTacToe {
-    private static final Logger logger = Logger.getLogger(TicTacToe.class.getName());
+public class TicTacToeCli {
+    private static final Logger logger = Logger.getLogger(TicTacToeCli.class.getName());
     public static final String PLAYER_ONE_NAME = "Player 1";
     public static final String PLAYER_2_NAME = "Player 2";
     public static final String PLAYER_ONE_MARK = "X";
@@ -54,7 +54,7 @@ public class TicTacToe {
 
     private static void checkIfThereIsTie() {
         if(isTie()) {
-            System.out.println(" => There is tie.%n");
+            System.out.printf(" => There is tie.%n");
             endGame();
         }
     }
