@@ -5,6 +5,8 @@ import java.awt.*;
 
 public class TicTacToeSw {
 
+    public static final String NIMBUS_LOOK_AND_FEEL = "javax.swing.plaf.nimbus.NimbusLookAndFeel";
+    public static final String HELVETICA_FONT = "Helvetica";
     JFrame frame = new JFrame("Tic Tac Toe");
     JLabel textLabel = new JLabel();
     JPanel textPanel = new JPanel();
@@ -19,7 +21,7 @@ public class TicTacToeSw {
 
     TicTacToeSw() {
         try {
-            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+            UIManager.setLookAndFeel(NIMBUS_LOOK_AND_FEEL);
         } catch (Exception e) {
             System.out.println("Look and Feel not set: " + e.getMessage());
         }
@@ -33,7 +35,7 @@ public class TicTacToeSw {
         textLabel.setBackground(Color.darkGray);
         textLabel.setForeground(Color.white);
         textLabel.setOpaque(true);
-        textLabel.setFont(new Font("Helvetica", Font.BOLD, 50));
+        textLabel.setFont(new Font(HELVETICA_FONT, Font.BOLD, 50));
         textLabel.setHorizontalAlignment(JLabel.CENTER);
         textLabel.setText("Tic-Tac-Toe");
 
@@ -55,7 +57,7 @@ public class TicTacToeSw {
                 tile.setOpaque(true);
                 tile.setForeground(Color.blue);
                 tile.setForeground(Color.white);
-                tile.setFont(new Font("Helvetica", Font.BOLD, 120));
+                tile.setFont(new Font(HELVETICA_FONT, Font.BOLD, 120));
                 tile.setFocusable(false);
                 tile.addActionListener(e -> {
                     if(gameOver) return;
