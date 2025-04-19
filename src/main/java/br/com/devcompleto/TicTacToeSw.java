@@ -5,9 +5,6 @@ import java.awt.*;
 
 public class TicTacToeSw {
 
-    private final int boadWidth = 600;
-    private final int boardHeight = 650;
-
     JFrame frame = new JFrame("Tic Tac Toe");
     JLabel textLabel = new JLabel();
     JPanel textPanel = new JPanel();
@@ -27,7 +24,7 @@ public class TicTacToeSw {
             System.out.println("Look and Feel not set: " + e.getMessage());
         }
         frame.setVisible(true);
-        frame.setSize(boadWidth, boardHeight);
+        frame.setSize(600, 650);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,8 +57,6 @@ public class TicTacToeSw {
                 tile.setForeground(Color.white);
                 tile.setFont(new Font("Helvetica", Font.BOLD, 120));
                 tile.setFocusable(false);
-//                tile.setText(currentPlayer);
-
                 tile.addActionListener(e -> {
                     if(gameOver) return;
 
@@ -76,12 +71,9 @@ public class TicTacToeSw {
                             textLabel.setText(currentPlayer + "'s turn.");
                         }
                     }
-
-
                 });
             }
         }
-
     }
 
     private void checkWinner() {
@@ -138,7 +130,6 @@ public class TicTacToeSw {
             }
             gameOver = true;
         }
-
     }
 
     private void setTie(JButton tile) {
@@ -155,6 +146,6 @@ public class TicTacToeSw {
 
 
     public static void main(String[] args) {
-        TicTacToeSw game = new TicTacToeSw();
+        new TicTacToeSw();
     }
 }
